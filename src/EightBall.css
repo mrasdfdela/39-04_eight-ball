@@ -1,0 +1,17 @@
+.EightBall {
+  color: purple;
+  height: 5em;
+  width: 5em;
+  padding: 5em;
+  margin: auto;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EightBall-text {
+  margin: auto;
+  width: 10em;
+}
