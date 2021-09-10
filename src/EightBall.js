@@ -5,9 +5,9 @@ import responses, { randomMsg } from "./helpers.js";
 function EightBall() {
   const [ isAnswer, setIsAnswer ] = useState(false)
   const [ answer, setAnswer ] = useState("Think of a Question");
-  const [ backgroundColor, setBackgroundColor ] = useState('black');
+  const [ backgroundColor, setBackgroundColor ] = useState("black");
 
-  function handleClick(){
+  function eightBallClick(){
     if (isAnswer) {
       setAnswer("Think of a Question");
       setBackgroundColor("black");
@@ -16,20 +16,27 @@ function EightBall() {
       const response = randomMsg(responses);
       setAnswer(response.msg);
       setBackgroundColor(response.color);
-      console.log(response.color);
-      console.log(backgroundColor);
       setIsAnswer(true);
     }
   }
 
+  function resetEightBall(){
+    setAnswer("Think of a Question");
+    setIsAnswer(false);
+    setBackgroundColor("black");
+  }
+
   return (
-    <div
-      className="EightBall"
-      style={{ backgroundColor: { backgroundColor } }}
-      onClick={handleClick}
-    >
-      <h3 className="EightBall-text">{answer}</h3>
-    </div>
+    <>
+      <div
+        className="EightBall"
+        onClick={eightBallClick}
+        style={{ backgroundColor: { backgroundColor } }}
+        >
+        <h3 className="EightBall-text">{answer}</h3>
+      </div>
+      <button onClick={resetEightBall}>Reset</button>
+    </>
   );
 }
 
