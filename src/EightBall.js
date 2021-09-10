@@ -10,14 +10,11 @@ function EightBall() {
   function eightBallClick(){
     if (isAnswer) {
       setAnswer("Think of a Question");
-      setBackgroundColor("black");
       setIsAnswer(false);
     } else {
       const response = randomMsg(responses);
       setAnswer(response.msg);
       setBackgroundColor(response.color);
-      console.log(backgroundColor);
-      console.log(response.color);
       setIsAnswer(true);
     }
   }
@@ -33,7 +30,7 @@ function EightBall() {
       <div
         className="EightBall"
         onClick={eightBallClick}
-        style={{ backgroundColor: { backgroundColor } }}
+        style={{ backgroundColor: isAnswer ? backgroundColor : 'black' }}
         >
         <h3 className="EightBall-text">{answer}</h3>
       </div>
