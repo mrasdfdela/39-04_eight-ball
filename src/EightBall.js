@@ -16,6 +16,8 @@ function EightBall() {
       const response = randomMsg(responses);
       setAnswer(response.msg);
       setBackgroundColor(response.color);
+      console.log(backgroundColor);
+      console.log(response.color);
       setIsAnswer(true);
     }
   }
